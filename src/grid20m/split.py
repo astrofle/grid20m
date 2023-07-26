@@ -76,7 +76,7 @@ def split_sdf(sdf, numbers, base=None, overwrite=False):
                 this_output = output(b+1, s, p)
                 query = build_query(s, p)
                 rows = select_sdf_rows(sdf, query, bintable=b)
-                sdf.write(this_output, rows=rows, bintable=0, 
+                sdf.write(this_output, rows=rows, bintable=b, 
                           overwrite=overwrite)
                 outputs.append(this_output)
 
