@@ -4,7 +4,7 @@ __version__ = "0.1.0"
 all = ["version"]
 
 def version():
-    """Version of the dysh code
+    """Version of the grid20m code
     :rtype: str
     """
     return __version__
