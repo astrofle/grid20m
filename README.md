@@ -19,7 +19,7 @@ Using `conda`:
 ## Use
 From a terminal:
 
-   grid20m <input_filename> [-o <output_path>] [-a <channel_averaging_factor>] [--overwrite] [-v <verbosity level>] 
+   grid20m <input_filename> [-o <output_path>] [-a <channel_averaging_factor>] [--overwrite] [-v <verbosity level>] [--pixelwidth <pixel_width_in_arcsec>] [--size <X> <Y>]
 
 this will produce a series of cubes, as FITS files.
 The number of cubes produced depends on how many 
