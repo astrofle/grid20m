@@ -9,7 +9,7 @@ Using pip:
 
 Using `conda`:
 
-    conda create --name grid20m-venv python=3.9
+    conda create --name grid20m-venv python=3.8
     conda activate grid20m-venv
     conda install -c conda-forge pip
     pip install git+https://github.com/astrofle/grid20m.git
