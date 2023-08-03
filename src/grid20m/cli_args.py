@@ -33,6 +33,20 @@ def cli_arguments():
 #    parser.add_argument("-p", "--polarizations", type=str,
 #                        help="Polarizations to split.")
 
+    parser.add_argument("--size", type=int,
+                        metavar=("X", "Y"),
+                        nargs=2,
+                        help="Output cube size in pixels."
+                             "By default it will use a size "
+                             "that covers the mapped area."
+                        )
+
+    parser.add_argument("--pixelwidth", type=float,
+                        help="Image pixel width on sky (arcsec)."
+                             "By default it will use a pixel size "
+                             "that samples the beam with three pixels."
+                       )
+
     parser.add_argument("--overwrite", default=False,
                         action="store_true",
                         help="Overwrites existing files if set.")
@@ -41,7 +55,8 @@ def cli_arguments():
                         default=4, 
                         help="Verbosity level -- 0-1:none, "
                              "2:errors only, 3:+warnings, "
-                             "4(default):+user info, 5:+debug")
+                             "4(default):+user info, 5:+debug"
+                       )
 
     args = parser.parse_args()
 

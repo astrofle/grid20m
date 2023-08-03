@@ -26,6 +26,7 @@ def main(args):
         base = os.path.splitext(sdf)[0]
         grid.main(sdf, base, average=args.average, 
                   overwrite=args.overwrite, diameter=20,
+                  size=args.size, pixelwidth=args.pixelwidth,
                   verbose=args.verbose)
 
 
