@@ -25,8 +25,8 @@ polarizations and spectral windows are present in
 the input file.
 
 ## Acknowledgments
-If using `grid20m` in your work, please acknowledge the following packages:
-[dysh](https://github.com/GreenBankObservatory/dysh)
-[gbtgridder](https://github.com/GreenBankObservatory/gbtgridder)
-[cygrid](https://github.com/bwinkel/cygrid)
+If using `grid20m` in your work, please acknowledge the following packages:<br>
+[dysh](https://github.com/GreenBankObservatory/dysh)<br>
+[gbtgridder](https://github.com/GreenBankObservatory/gbtgridder)<br>
+[cygrid](https://github.com/bwinkel/cygrid)<br>
 `grid20m` was developed by P. Salas (psalas@nrao.edu).
