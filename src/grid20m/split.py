@@ -8,7 +8,7 @@ import sys
 import argparse
 import warnings
 
-from dysh.fits.sdfitsload import SDFITSLoad
+from dysh.fits.gb20mfitsload import GB20MFITSLoad
 from astropy.utils.exceptions import AstropyWarning
 
 from grid20m.cli_args import (cli_arguments, 
@@ -88,7 +88,7 @@ def main(sdfitsfile, basename, overwrite=False):
     """
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', AstropyWarning)
-        sdf = SDFITSLoad(sdfitsfile)
+        sdf = GB20MFITSLoad(sdfitsfile)
     numbers = parse_sdf(sdf)
     split_sdfs = split_sdf(sdf, numbers, basename, overwrite)
 
