@@ -9,7 +9,8 @@ dynamic = ["version"]
 
 dependencies = [
   "gbtgridder @ git+https://github.com/GreenBankObservatory/gbtgridder.git@release_2.0",
-  "dysh @ git+https://github.com/GreenBankObservatory/dysh.git@pedro-devel"
+  "dysh @ git+https://github.com/GreenBankObservatory/dysh.git@pedro-devel",
+  "numpy"
 ]
 
 
