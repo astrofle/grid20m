@@ -12,6 +12,8 @@ Using `conda`:
     conda create --name grid20m-venv python=3.8
     conda activate grid20m-venv
     conda install -c conda-forge pip
+    pip install numpy scipy cython
+    pip install git+https://github.com/GreenBankObservatory/gbtgridder.git@release_2.0
     pip install git+https://github.com/astrofle/grid20m.git
 
 ## Use
