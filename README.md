@@ -3,10 +3,6 @@
 Separates and grids GBO's 20m data.
 
 ## Installation
-Using pip:
-
-    pip install git+https://github.com/astrofle/grid20m.git
-
 Using `conda`:
 
     conda create --name grid20m-venv python=3.8
