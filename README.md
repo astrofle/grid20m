@@ -15,8 +15,8 @@ Using `conda`:
 ## Use
 From a terminal:
 
-   conda activate grid20m-venv
-   grid20m <input_filename> [-o <output_path>] [-a <channel_averaging_factor>] [--overwrite] [-v <verbosity_level>] [--pixelwidth <pixel_width_in_arcsec>] [--size <horizontal_size> <vertical_size>]
+    conda activate grid20m-venv
+    grid20m <input_filename> [-o <output_path>] [-a <channel_averaging_factor>] [--overwrite] [-v <verbosity_level>] [--pixelwidth <pixel_width_in_arcsec>] [--size <horizontal_size> <vertical_size>]
 
 this will produce a series of cubes, as FITS files.
 The number of cubes produced depends on how many 
