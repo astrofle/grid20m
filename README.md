@@ -9,7 +9,8 @@ Using `conda`:
     conda activate grid20m-venv
     conda install -c conda-forge pip # optional
     conda install -c conda-forge cygrid 
-    conda install -c conda-forge numpy scipy cython 
+    conda install -c conda-forge numpy scipy cython
+    pip install git+https://github.com/GreenBankObservatory/dysh.git@pedro-devel 
     pip install git+https://github.com/GreenBankObservatory/gbtgridder.git@release_2.0
     pip install git+https://github.com/astrofle/grid20m.git
 
