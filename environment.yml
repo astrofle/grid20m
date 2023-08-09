@@ -95,6 +95,7 @@ dependencies:
       - sphinxcontrib-jsmath==1.0.1
       - sphinxcontrib-qthelp==1.0.3
       - sphinxcontrib-serializinghtml==1.1.5
+      - sphinxcontrib_mermaid
       - tzdata==2023.3
       - urllib3==2.0.4
       - zipp==3.16.2
