@@ -8,8 +8,9 @@ import sys
 import argparse
 import warnings
 
+from astropy.io import fits
 from dysh.fits.gb20mfitsload import GB20MFITSLoad
-from astropy.utils.exceptions import AstropyWarning
+from astropy.utils.exceptions import AstropyWarning, AstropyDeprecationWarning
 
 from grid20m.cli_args import (cli_arguments, 
                               parse_arg_output)
@@ -27,9 +28,9 @@ def parse_sdf(sdf):
     spws = []
     nspw = []
     for i in range(nbin):
-        pols.append(sdf.udata(i, "PLNUM"))
+        pols.append(sdf.udata("PLNUM"))
         npol.append(len(pols[i]))
-        spws.append(sdf.udata(i, "IFNUM"))
+        spws.append(sdf.udata("IFNUM"))
         nspw.append(len(spws[i]))
 
     out = {"nbin": nbin,
@@ -46,7 +47,7 @@ def select_sdf_rows(sdf, query, bintable=0):
     """
     """
 
-    return sdf._ptable[bintable].query(query).index
+    return sdf._index.query(query).index
     
 
 def build_query(ifnum, plnum):
@@ -76,6 +77,7 @@ def split_sdf(sdf, numbers, base=None, overwrite=False):
                 this_output = output(b+1, s, p)
                 query = build_query(s, p)
                 rows = select_sdf_rows(sdf, query, bintable=b)
+                print(f"Saving spectral window {s} polarization {p} to {this_output}")
                 sdf.write(this_output, rows=rows, bintable=b, 
                           overwrite=overwrite)
                 outputs.append(this_output)
@@ -83,14 +85,30 @@ def split_sdf(sdf, numbers, base=None, overwrite=False):
     return outputs
 
 
+def patch_obsmode(sdfitsfile):
+    """
+    Updates the OBSMODE column with the header value.
+    """
+
+    hdu = fits.open(sdfitsfile, mode="update")
+    head = hdu[0].header
+    table = hdu[1].data
+    table["OBSMODE"] = head["OBSMODE"]
+    hdu.flush()
+    hdu.close()
+
+
 def main(sdfitsfile, basename, overwrite=False):
     """
     """
+    patch_obsmode(sdfitsfile)
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', AstropyWarning)
-        sdf = GB20MFITSLoad(sdfitsfile)
-    numbers = parse_sdf(sdf)
-    split_sdfs = split_sdf(sdf, numbers, basename, overwrite)
+        warnings.simplefilter('ignore', AstropyDeprecationWarning)
+        print(f"Loading: {sdfitsfile}")
+        sdf = GB20MFITSLoad(sdfitsfile, index=False)
+        numbers = parse_sdf(sdf)
+        split_sdfs = split_sdf(sdf, numbers, basename, overwrite)
 
     return split_sdfs
 
