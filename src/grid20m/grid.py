@@ -40,7 +40,7 @@ def parse_args(filename, base, average=None,
     if pixelwidth is not None:
         sys.argv.append("--pixelwidth")
         sys.argv.append(f"{pixelwidth}")
-    sys.argv.append("--autoConfirm")
+    #sys.argv.append("--autoConfirm")
     sys.argv.append("-v")
     sys.argv.append(f"{verbose}")
     
