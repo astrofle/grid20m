@@ -11,8 +11,6 @@ dependencies = [
   "dysh", 
   "numpy",
   "scipy",
-  "cython",
-  "cygrid"
   "gbtgridder-20m"
 ]
 
