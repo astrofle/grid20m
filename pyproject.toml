@@ -1,18 +1,19 @@
 [project]
 name = "grid20m"
-description = ''
-requires-python = ">=3.6, <3.9"
+description = ""
+requires-python = ">=3.6"
 authors = [
   { name = "Pedro Salas", email = "psalas@nrao.edu" }
 ]
 dynamic = ["version"]
 
 dependencies = [
-  "dysh @ git+https://github.com/GreenBankObservatory/dysh.git@pedro-devel",
+  "dysh", 
   "numpy",
   "scipy",
   "cython",
-  "gbtgridder @ git+https://github.com/GreenBankObservatory/gbtgridder.git@release_2.0",
+  "cygrid"
+  "gbtgridder-20m"
 ]
 
 
@@ -24,10 +25,8 @@ include = ["/src", "/tests", "/bin"]
 exclude = [
   "/.github",
   "/.gitignore",
-  "*.swp",
   "/docs",
   "/benchmark"
-#"/tests"?
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -35,3 +34,7 @@ packages = ["src/grid20m"]
 
 [tool.hatch.version]
 path = "src/grid20m/__init__.py"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
